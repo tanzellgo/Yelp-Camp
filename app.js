@@ -19,7 +19,7 @@ var app = express();
 
 app.set("view engine", "ejs"); // ejs is imported
 
-var url = process.env.YELPDBURL || "mongodb://localhost/yelp_camp";
+var url = process.env.YELPDBURL;
 mongoose.connect(url, {
     useNewUrlParser: true,
     useCreateIndex: true
@@ -63,6 +63,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 
-app.listen(process.env.PORT || 3000, process.env.IP, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server has started!")
 });
