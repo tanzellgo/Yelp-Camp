@@ -19,19 +19,16 @@ var app = express();
 
 app.set("view engine", "ejs"); // ejs is imported
 
-var url = process.env.yelp_campdburl || "mongodb://localhost/yelp_camp";
-if(url !=  "mongodb://localhost/yelp_camp"){
-    mongoose.connect(url, {
-        useNewUrlParser: true,
-        useCreateIndex: true
-    }).then(()=>{
-        console.log("Database connection success")
-    }).catch(err => {
-        console.log("Error:" + err.message)
-    }); 
-} else {
-    mongoose.connect(url); // also auto creates db if its none existent
-}
+var url = process.env.YELPDBURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(()=>{
+    console.log("Database connection success")
+}).catch(err => {
+    console.log("Error:" + err.message)
+})
+
 
 
 app.use(bodyParser.urlencoded({extended: true}));
