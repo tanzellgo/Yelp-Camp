@@ -12,7 +12,7 @@ var express          = require("express"),
     User             = require("./models/users"),
     campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
-    indexRoutes      = require("./routes/index"),
+    indexRoutes      = require("./routes/index");
 
 
 var app = express();
